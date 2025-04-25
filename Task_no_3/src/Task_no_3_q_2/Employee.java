@@ -1,0 +1,27 @@
+package Task_no_3_q_2;
+
+public class Employee implements Taxable{
+	int empId;
+	String name;
+	double salary;
+	
+
+	public Employee(int empId, String name, double salary) {
+		
+		this.empId = empId;
+		this.name = name;
+		this.salary = salary;
+	}
+
+
+	@Override
+	public void calTax() {
+		// TODO Auto-generated method stub
+		
+		double spa = salary*12.0;
+		double incomeTaxforEmployee = spa*(incomeTax/100);
+		
+		  System.out.println("Income Tax for employee " + name + " is: ₹ " + incomeTaxforEmployee +"\nFor the Annual Salary of : ₹ "+salary*12);
+	}
+
+}

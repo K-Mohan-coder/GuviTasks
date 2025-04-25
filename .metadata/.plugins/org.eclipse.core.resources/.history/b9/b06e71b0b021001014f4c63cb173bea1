@@ -1,0 +1,30 @@
+package Task_no_3_q_2;
+
+public class Product implements Taxable {
+	
+	int pid;
+	double price;
+	double quantity;
+	
+	
+	public Product(int pid, double price, double quantity) {
+		super();
+		this.pid = pid;
+		this.price = price;
+		this.quantity = quantity;
+		
+	}
+
+
+	@Override
+	public void calTax() {
+		// TODO Auto-generated method stub
+		
+		double tax = price * salesTax;
+        System.out.println("Sales Tax on product ID " + pid + " is: ₹" + tax + " per unit");
+		
+	}
+	
+	
+
+}

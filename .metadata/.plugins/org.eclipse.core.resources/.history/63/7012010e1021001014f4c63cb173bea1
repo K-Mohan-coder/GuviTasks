@@ -1,0 +1,28 @@
+package Customised_Exception;
+
+public class CustomisedException {
+	
+	public static String validateEmail(String email) throws ValidateEmail{
+		if (email.contains("@")) {
+			return email;
+		}
+		else {
+			throw new ValidateEmail("Invalid Mail");
+		}
+	}
+	
+	public static void main(String args[]) {
+		String email="Mohangmail.com";
+		
+	try {
+		String stringemail=validateEmail(email);
+		System.out.println(stringemail);
+	}
+	catch(ValidateEmail e) {
+		e.printStackTrace();
+		System.out.println(e.getMessage());	
+	}
+
+	}
+
+}

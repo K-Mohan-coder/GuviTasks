@@ -1,0 +1,34 @@
+package Task_no_3;
+
+public class Library {
+	private static Book bookStorage[];
+	static int count;
+	
+    public Library() {
+    	bookStorage = new Book[5];
+        count = 0;
+    }
+	
+	public static void addBook(Book newbook) {
+		
+		if (count<bookStorage.length){
+			bookStorage[count] = newbook;
+			System.out.println("Added : "+bookStorage[count].title);
+			count++;
+		}
+		else {
+			System.out.println("There is No Space in Library");
+		}
+		
+	}
+	
+	
+	public static void display() {
+		System.out.println("Books in the library:");
+		for(int i=0;i<bookStorage.length;i++) {
+			System.out.println("Book No :"+i+1+"\nBook Id : "+bookStorage[i].bookId+"\nBook Title : "+bookStorage[i].title+"\nBook Author : "+bookStorage[i].author+"\nBook Available : "+(bookStorage[i].isAvail ? "Yes":"No"));
+		}
+	
+	}
+		
+}
