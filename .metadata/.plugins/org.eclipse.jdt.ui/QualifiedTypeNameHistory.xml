@@ -5,4 +5,9 @@
     <fullyQualifiedTypeName name="Task_no_3.Library"/>
     <fullyQualifiedTypeName name="Task_no_3_q_2.Taxable"/>
     <fullyQualifiedTypeName name="Task_no_3_q_2.Employee"/>
+    <fullyQualifiedTypeName name="Task_no_4_q_1.AgeNotWithInTheAgeRange"/>
+    <fullyQualifiedTypeName name="Task_no_4_q_1.AgeNotWithinRangeException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="javax.naming.NameAlreadyBoundException"/>
+    <fullyQualifiedTypeName name="Task_no_4_q_1.NameNotValidException"/>
 </qualifiedTypeNameHistroy>
