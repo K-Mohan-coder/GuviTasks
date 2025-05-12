@@ -28,6 +28,7 @@ public class Library {
 				  for (int j = i; j < count - 1; j++) {
 		                bookStorage[j] = bookStorage[j + 1];
 		            }
+//				bookStorage[i]=null;
 		            bookStorage[count - 1] = null;
 		            count--; 
 		            System.out.println("Book with ID " + bookId + " removed.");
@@ -40,7 +41,7 @@ public class Library {
 	
 	public static void searchBook(int bookId) {
 		
-		for(int i=0;i<bookStorage.length;i++) {
+		for(int i=0;i<count;i++) {
 			if (bookStorage[i] != null && bookStorage[i].bookId==bookId ) {
 				System.out.println("Book No :"+(i+1)+"\nBook Id : "+bookStorage[i].bookId+"\nBook Title : "+bookStorage[i].title+"\nBook Author : "+bookStorage[i].author+"\nBook Available : "+(bookStorage[i].isAvail ? "Yes":"No"));
 				System.out.println();

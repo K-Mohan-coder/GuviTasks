@@ -7,8 +7,8 @@ public class Testing {
 		
 		try {
 			
-            Student student1 = new Student(1, "Mohan", 8, "Computer Science");
-            Student student2 = new Student(2,"Surya@",14,"Information Technology");
+//            Student student1 = new Student(1, "Mohan", 18, "Computer Science");
+            Student student2 = new Student(2,"Surya",14,"Information Technology");
 			
 		}
 		catch (AgeNotWithinRangeException e) {
