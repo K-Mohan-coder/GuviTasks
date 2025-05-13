@@ -11,6 +11,8 @@ public class Task_n_5_q_1 {
 	}
 
 	public static void main(String[] args) {
+		
+		System.out.println("HI guys");
 		// TODO Auto-generated method stub
 		List<String> names = Arrays.asList("aBc","d","ef");
 		
