@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Elements with Default Values</title>
+</head>
+<body>
+  <h2>Form Elements with Default Values</h2>
+  <form>
+
+    <!-- Text input -->
+    <label>Text: <input type="text" name="text" value="Default Text"></label><br><br>
+
+    <!-- Password input -->
+    <label>Password: <input type="password" name="password" value="password123"></label><br><br>
+
+    <!-- Email input -->
+    <label>Email: <input type="email" name="email" value="example@email.com"></label><br><br>
+
+    <!-- Number input -->
+    <label>Number: <input type="number" name="number" value="42"></label><br><br>
+
+    <!-- Date input -->
+    <label>Date: <input type="date" name="date" value="2025-01-01"></label><br><br>
+
+    <!-- Time input -->
+    <label>Time: <input type="time" name="time" value="12:00"></label><br><br>
+
+    <!-- URL input -->
+    <label>URL: <input type="url" name="url" value="https://example.com"></label><br><br>
+
+    <!-- Tel input -->
+    <label>Phone: <input type="tel" name="tel" value="+1234567890"></label><br><br>
+
+    <!-- Checkbox input -->
+    <label><input type="checkbox" name="subscribe" checked> Subscribe to newsletter</label><br><br>
+
+    <!-- Radio buttons -->
+    <label><input type="radio" name="gender" value="male" checked> Male</label>
+    <label><input type="radio" name="gender" value="female"> Female</label><br><br>
+
+    <!-- Color input -->
+    <label>Favorite Color: <input type="color" name="color" value="#ff5733"></label><br><br>
+
+    <!-- Range input -->
+    <label>Volume: <input type="range" name="volume" min="0" max="100" value="70"></label><br><br>
+
+    <!-- File input (default file not pre-fillable due to security) -->
+    <label>Upload File: <input type="file" name="file"></label><br><br>
+
+    <!-- Hidden input -->
+    <input type="hidden" name="userid" value="12345">
+
+    <!-- Textarea -->
+    <label>Message:<br>
+      <textarea name="message" rows="4" cols="30">This is the default message.</textarea>
+    </label><br><br>
+
+    <!-- Select dropdown -->
+    <label>Country:
+      <select name="country">
+        <option value="india">India</option>
+        <option value="usa" selected>USA</option>
+        <option value="uk">UK</option>
+      </select>
+    </label><br><br>
+
+    <!-- Multiple select -->
+    <label>Languages Known:
+      <select name="languages" multiple size="3">
+        <option value="english" selected>English</option>
+        <option value="tamil">Tamil</option>
+        <option value="hindi" selected>Hindi</option>
+      </select>
+    </label><br><br>
+
+    <!-- Submit and Reset buttons -->
+    <input type="submit" value="Submit Form">
+    <input type="reset" value="Reset Form">
+
+  </form>
+</body>
+</html>

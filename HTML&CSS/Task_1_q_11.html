@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>All HTML Input Types</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: auto;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>HTML Input Types Demo</h1>
+
+  <form>
+    <!-- Text Inputs -->
+    <div class="form-group">
+      <label for="text">Text:</label>
+      <input type="text" id="text" placeholder="Enter text">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter password">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" placeholder="example@mail.com">
+    </div>
+
+    <div class="form-group">
+      <label for="tel">Telephone:</label>
+      <input type="tel" id="tel" placeholder="123-456-7890">
+    </div>
+
+    <div class="form-group">
+      <label for="url">URL:</label>
+      <input type="url" id="url" placeholder="https://example.com">
+    </div>
+
+    <!-- Number Inputs -->
+    <div class="form-group">
+      <label for="number">Number:</label>
+      <input type="number" id="number" min="1" max="100">
+    </div>
+
+    <div class="form-group">
+      <label for="range">Range (0-100):</label>
+      <input type="range" id="range" min="0" max="100">
+    </div>
+
+    <!-- Date & Time Inputs -->
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" id="date">
+    </div>
+
+    <div class="form-group">
+      <label for="time">Time:</label>
+      <input type="time" id="time">
+    </div>
+
+    <div class="form-group">
+      <label for="datetime-local">Date & Time:</label>
+      <input type="datetime-local" id="datetime-local">
+    </div>
+
+    <div class="form-group">
+      <label for="month">Month:</label>
+      <input type="month" id="month">
+    </div>
+
+    <div class="form-group">
+      <label for="week">Week:</label>
+      <input type="week" id="week">
+    </div>
+
+    <!-- Selection Inputs -->
+    <div class="form-group">
+      <label>Gender:</label>
+      <input type="radio" name="gender" value="male"> Male
+      <input type="radio" name="gender" value="female"> Female
+    </div>
+
+    <div class="form-group">
+      <label>Hobbies:</label>
+      <input type="checkbox" name="hobby" value="reading"> Reading
+      <input type="checkbox" name="hobby" value="sports"> Sports
+      <input type="checkbox" name="hobby" value="music"> Music
+    </div>
+
+    <!-- File Input -->
+    <div class="form-group">
+      <label for="file">File Upload:</label>
+      <input type="file" id="file">
+    </div>
+
+    <!-- Color Input -->
+    <div class="form-group">
+      <label for="color">Favorite Color:</label>
+      <input type="color" id="color">
+    </div>
+
+    <!-- Hidden Input -->
+    <input type="hidden" name="hiddenField" value="secretValue">
+
+    <!-- Search Input -->
+    <div class="form-group">
+      <label for="search">Search:</label>
+      <input type="search" id="search" placeholder="Search something...">
+    </div>
+
+    <!-- Submit & Reset -->
+    <div class="form-group">
+      <button type="submit">Submit</button>
+      <button type="reset" style="background-color: #6c757d;">Reset</button>
+    </div>
+  </form>
+
+</body>
+</html>
