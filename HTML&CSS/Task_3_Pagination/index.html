@@ -1,110 +1,64 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Project</title>
-    <script src="https://cdn.tailwindcss.com"></script> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Project</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
 </head>
 <body style="background-color: #000c25;">
-    <header>
 
-        <div class="w-1/2 mx-auto" style="padding-top: 3%;">
-            <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">Mini Task :<span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Pagination </span> </h1>
-        </div>
-    </header>
-
-
-    <div id="output"><font color="white"></font></div>
-
-    <div class="w-1/2 mx-auto">
-        <div class="grid grid-cols-2 gap-2" style="padding-top: 5%;" id="pagination-div"></div>
+  <header>
+    <div class="w-1/2 mx-auto" style="padding-top: 3%;">
+      <h1 id="title" class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl">
+        Mini Task: <span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Pagination</span>
+      </h1>
+      <p id="description" class="text-lg text-white mt-2">This is a simple pagination example using API data.</p>
     </div>
+  </header>
 
-    <div class="w-full flex justify-center " id="pagination-bar"></div>
-  
-    <!-- <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script> -->
+  <div class="w-full flex justify-center mt-8">
+    <div class="table-responsive">
+      <table class="table table-bordered w-full text-white text-left">
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Email</th></tr>
+        </thead>
+        <tbody id="output"></tbody>
+      </table>
+    </div>
+  </div>
 
-    <script>
+  <div id="buttons" class="d-flex justify-content-center my-4" style="display: flex;justify-content: center;">
+    <button id="firstBtn" class="mx-1 px-4 py-2 bg-blue-500 text-white rounded">First</button>
+    <button id="prevBtn" class="mx-1 px-4 py-2 bg-blue-500 text-white rounded">Previous</button>
+    <button id="nextBtn" class="mx-1 px-4 py-2 bg-blue-500 text-white rounded">Next</button>
+    <button id="lastBtn" class="mx-1 px-4 py-2 bg-blue-500 text-white rounded">Last</button>
+  </div>
+
+  <script>
     const url = 'https://gist.githubusercontent.com/rvsp/add40254aa126f045837fa5b51f47f1f/raw/4d724bfabf4cce7379a386e23bef6576ab99a2f9/pagination.json';
-    const cardsPerPage = 10;
-    let currentPage = 1;
-    let totalPages = 1;
+    const output = document.getElementById("output");
+    const firstBtn = document.getElementById("firstBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const lastBtn = document.getElementById("lastBtn");
+
     let allData = [];
+    let currentPage = 1;
+    const cardsPerPage = 10;
+    let totalPages = 1;
 
-    function renderCards(data, page = 1) {
-      const container = document.getElementById("pagination-div");
-      container.innerHTML = ""; 
-
+    function renderTable(data, page = 1) {
+      output.innerHTML = "";
       const startIndex = (page - 1) * cardsPerPage;
       const endIndex = startIndex + cardsPerPage;
       const paginatedData = data.slice(startIndex, endIndex);
-
       paginatedData.forEach(user => {
-        const card = document.createElement('div');
-        card.id=user.id
-        card.className = 'p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700';
-        card.innerHTML = `
-          <a href="#">
-            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white" >ID: ${user.id}</h5>
-          </a>
-          <p class="mb-3 font-normal text-gray-500 dark:text-gray-400">
-            Name: ${user.name}<br>Email: ${user.email}
-          </p>
-        `;
-        container.appendChild(card);
+        output.innerHTML += `<tr>
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+        </tr>`;
       });
-    }
-
-    function renderPaginationBar(totalPages) {
-      const paginationBar = document.getElementById('pagination-bar');
-      paginationBar.innerHTML = "";
-
-      const prev = document.createElement("li");
-      prev.innerHTML = `<a href="#" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-        <span class="sr-only">Previous</span>
-        <svg class="w-3 h-3 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-        </svg>
-      </a>`;
-      prev.addEventListener("click", () => {
-        if (currentPage > 1) {
-          currentPage--;
-          renderCards(allData, currentPage);
-          renderPaginationBar(totalPages);
-        }
-      });
-      paginationBar.appendChild(prev);
-
-      for (let i = 1; i <= totalPages; i++) {
-        const li = document.createElement("li");
-        li.innerHTML = `<a href="#" class="flex items-center justify-center px-4 h-10 leading-tight ${
-          i === currentPage
-            ? "text-blue-600 border border-blue-300 bg-blue-50 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-            : "text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-        }">${i}</a>`;
-        li.addEventListener("click", () => {
-          currentPage = i;
-          renderCards(allData, currentPage);
-          renderPaginationBar(totalPages);
-        });
-        paginationBar.appendChild(li);
-      }
-
-      const next = document.createElement("li");
-      next.innerHTML = `<a href="#" class="flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-        <span class="sr-only">Next</span>
-        <svg class="w-3 h-3 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-        </svg>
-      </a>`;
-      next.addEventListener("click", () => {
-        if (currentPage < totalPages) {
-          currentPage++;
-          renderCards(allData, currentPage);
-          renderPaginationBar(totalPages);
-        }
-      });
-      paginationBar.appendChild(next);
     }
 
     fetch(url)
@@ -112,11 +66,34 @@
       .then(data => {
         allData = data;
         totalPages = Math.ceil(allData.length / cardsPerPage);
-        renderCards(allData, currentPage);
-        renderPaginationBar(totalPages);
+        renderTable(allData, currentPage);
       })
       .catch(err => console.error("Fetch error:", err));
 
-    </script>
+    firstBtn.onclick = () => {
+      currentPage = 1;
+      renderTable(allData, currentPage);
+    };
+
+    prevBtn.onclick = () => {
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable(allData, currentPage);
+      }
+    };
+
+    nextBtn.onclick = () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderTable(allData, currentPage);
+      }
+    };
+
+    lastBtn.onclick = () => {
+      currentPage = totalPages;
+      renderTable(allData, currentPage);
+    };
+  </script>
+  <script src="https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
 </body>
 </html>
